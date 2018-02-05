@@ -10,7 +10,7 @@
     "dev": "rimraf docs/public/assets/ && cross-env NODE_ENV=dev webpack --config webpack.dev.config.js",
     "prod": "rimraf docs/public/assets/ && cross-env NODE_ENV=production webpack -p --config webpack.production.config.js ",
     "start": "cross-env NODE_ENV=dev node server.hot.reload",
-    "serve-dev": "npm run dev && cross-env NODE_ENV=dev nodemon ./src/server/index.js",
+    "serve-dev": "npm run dev && cross-env NODE_ENV=dev node ./src/server/index.js",
     "serve-prod": "npm run prod && cross-env NODE_ENV=production node ./src/server/index.js"
   },
   "engines": {

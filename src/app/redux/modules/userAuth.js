@@ -3,8 +3,40 @@
 import moment             from 'moment';
 import { appConfig }      from '../../config';
 import userInfosMockData  from '../../mock/userInfosMock.json';
-import getLocationOrigin  from '../../services/utils/getLocationOrigin';
+
+// import getLocationOrigin  from '../../services/utils/getLocationOrigin';
+// import login              from '../../services/API/login';
+
 import auth               from '../../services/auth';
+
+
+
+import axios from 'axios';
+import {
+  getMethod,
+  jsonHeader,
+  defaultOptions,
+  getLocationOrigin,
+  postMethod
+} from '../../services/fetchTools';
+
+// function login(endpoint = 'api/login') {
+//   const method  = postMethod.method;
+//   const headers = jsonHeader;
+//   const url     = `${getLocationOrigin()}/login`; // ${endpoint}
+//   const options = {...defaultOptions};
+
+//   return axios.request({
+//     method,
+//     url,
+//     withCredentials: true,
+//     ...headers,
+//     ...options
+//   });
+//   // .then(data => data)
+//   // .catch(error => Promise.reject(error));
+// }
+
 
 // --------------------------------
 // CONSTANTS
@@ -189,13 +221,13 @@ function logUser(
   password: string
 ) {
   return async (dispatch) => {
-    const FETCH_TYPE  = appConfig.DEV_MODE ? 'FETCH_MOCK' : 'FETCH';
-    const __SOME_LOGIN_API__ = 'login';
+    // const FETCH_TYPE  = appConfig.DEV_MODE ? 'FETCH_MOCK' : 'FETCH';
+    // const __SOME_LOGIN_API__ = 'login';
 
-    const mockResult  = userInfosMockData; // will be fetch_mock data returned (in case FETCH_TYPE = 'FETCH_MOCK', otherwise cata come from server)
-    const url         = `${getLocationOrigin()}/${__SOME_LOGIN_API__}`;
-    const method      = 'post';
-    const headers     = {};
+    // const mockResult  = userInfosMockData; // will be fetch_mock data returned (in case FETCH_TYPE = 'FETCH_MOCK', otherwise cata come from server)
+    // const url         = `${getLocationOrigin()}/${__SOME_LOGIN_API__}`;
+    // const method      = 'post';
+    // const headers     = {};
     const options     = {
       credentials: 'same-origin',
       data: {
@@ -204,26 +236,46 @@ function logUser(
       }
     };
 
+    // return login();
+
+    const method  = postMethod.method;
+    const headers = jsonHeader;
+    const url     = `${getLocationOrigin(3000)}/login`; // ${endpoint}
+
+    console.log('____', getLocationOrigin(3000));
+  
+    return axios.request({
+      method,
+      url,
+      withCredentials: true,
+      ...headers,
+      ...options
+    })
+    .then(data => {
+      console.log('___', data);
+    })
+    .catch(error => Promise.reject(error));
+
     // fetchMiddleware (does: fetch mock, real fetch, dispatch 3 actions... for a minimum code on action creator!)
-    return dispatch({
-      type: 'FETCH_MIDDLEWARE',
-      fetch: {
-        // common props:
-        type: FETCH_TYPE,
-        actionTypes: {
-          request:  REQUEST_LOG_USER,
-          success:  RECEIVED_LOG_USER,
-          fail:     ERROR_LOG_USER
-        },
-        // mock fetch props:
-        mockResult,
-        // real fetch props:
-        url,
-        method,
-        headers,
-        options
-      }
-    });
+    // return dispatch({
+    //   type: 'FETCH_MIDDLEWARE',
+    //   fetch: {
+    //     // common props:
+    //     type: FETCH_TYPE,
+    //     actionTypes: {
+    //       request:  REQUEST_LOG_USER,
+    //       success:  RECEIVED_LOG_USER,
+    //       fail:     ERROR_LOG_USER
+    //     },
+    //     // mock fetch props:
+    //     mockResult,
+    //     // real fetch props:
+    //     url,
+    //     method,
+    //     headers,
+    //     options
+    //   }
+    // });
   };
 }
 export function logUserIfNeeded(
@@ -234,6 +286,7 @@ export function logUserIfNeeded(
     dispatch: (any) => any,
     getState: () => boolean
   ): any => {
+
     if (shouldLogUser(getState())) {
       return dispatch(logUser(email, password));
     }

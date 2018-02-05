@@ -5,7 +5,7 @@ import { Base64 }  from 'js-base64';
 /*
   window.location.origin polyfill
  */
-export const getLocationOrigin = () => {
+export const getLocationOrigin = (port) => {
   if (!window.location.origin) {
     window.location.origin = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`;
   }

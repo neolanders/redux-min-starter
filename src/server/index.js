@@ -14,14 +14,18 @@ app.use(express.static(path.join(__dirname, DOCS_PATH)));
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, DOCS_PATH, 'index.html')));
 
+
 /* eslint-disable no-console */
 app.listen(
   PORT,
   IP_ADRESS,
-  () => console.log(`
-    ==============================================
-    -> Server 🏃 (running) on ${IP_ADRESS}:${PORT}
-    ==============================================
-  `)
+  () => {
+
+    console.log(`
+        ==============================================
+        -> Server 🏃 (running) on ${IP_ADRESS}:${PORT}:
+        ==============================================
+    `)
+  }
 );
 /* eslint-enable no-console */

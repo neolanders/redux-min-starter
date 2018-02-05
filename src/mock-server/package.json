@@ -1,0 +1,21 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "Simple Mock Server to simulate API authentification through JWT",
+  "main": "server.js",
+  "scripts": {
+    "start-auth": "node server.js"
+  },
+  "keywords": [
+    "json-server, node, REST API"
+  ],
+  "author": "Eric Alter",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "jsonwebtoken": "^8.1.1"
+  },
+  "devDependencies": {
+    "json-server": "^0.12.1"
+  }
+}

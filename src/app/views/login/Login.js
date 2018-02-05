@@ -223,7 +223,6 @@ class Login extends PureComponent<Props, State> {
   }
   // #endregion
 
-
   // #region on login button click callback
   handlesOnLogin = async (
     event: SyntheticEvent<>
@@ -249,6 +248,9 @@ class Login extends PureComponent<Props, State> {
 
     try {
       const response = await logUserIfNeeded(userLogin);
+
+      console.log('__response', response);
+
       const {
         data: {
           token,
@@ -260,11 +262,14 @@ class Login extends PureComponent<Props, State> {
       auth.setUserInfo(user);
 
       history.push({ pathname: '/' }); // back to Home
+
+
     } catch (error) {
       /* eslint-disable no-console */
       console.log('login went wrong..., error: ', error);
       /* eslint-enable no-console */
     }
+
   }
   // #endregion
 

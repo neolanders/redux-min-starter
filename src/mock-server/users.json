@@ -1,0 +1,41 @@
+{
+    "users": [
+        {
+            "email": "test@mail.com",
+            "password": "12345",
+            "username": "test",
+            "id": 1,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1IiwiaWF0IjoxNTE3NTM4MzQ4LCJleHAiOjE1MTc1NDE5NDh9.CBEeojcAVWEhmryyBI0k2y2Xc5uU9NExBoI5ab3Rjes"
+        },
+        {
+            "email": "test2@mail.com",
+            "password": "123454",
+            "username": "test",
+            "id": 2
+        },
+        {
+            "email": "test@mail.comn",
+            "password": "123454",
+            "username": "test",
+            "id": 3
+        },
+        {
+            "email": "user@fakemail.com",
+            "password": "pass",
+            "id": 4
+        },
+        {
+            "email": "test3@mail.com",
+            "password": "12345",
+            "username": "test",
+            "id": 5,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QzQG1haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NSIsImlhdCI6MTUxNzYzNzg1MSwiZXhwIjoxNTE3NjQxNDUxfQ.NvuPM8_SfYLEG7H9yWmT50mk9At8wK071I-zdYtwq30"
+        },
+        {
+            "email": "test222@mail.com",
+            "password": "12345",
+            "username": "evgeny",
+            "id": 6
+        }
+    ]
+}
