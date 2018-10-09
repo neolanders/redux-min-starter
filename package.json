@@ -127,7 +127,7 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "chalk": "^2.3.0",
