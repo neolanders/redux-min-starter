@@ -135,7 +135,7 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "js-base64": "^2.4.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.19.3",
